@@ -1,0 +1,57 @@
+attendance-system-supabase/
+├─ infra/
+│  ├─ supabase_schema.sql
+│  ├─ supabase_functions/
+│  │  └─ cron_retrain.sql
+│  └─ docker/
+│     ├─ Dockerfile.fastapi
+│     └─ docker-compose.yml
+├─ edge/
+│  ├─ camera_capture/
+│  │  ├─ capture.py
+│  │  ├─ requirements.txt
+│  │  └─ README.md
+│  ├─ inference/
+│  │  ├─ convert_to_trt.py
+│  │  ├─ trt_builder.sh
+│  │  └─ run_inference.py
+│  └─ audio/
+│     ├─ voice_capture.py
+│     ├─ ecapa_tdnn_infer.py
+│     └─ requirements.txt
+├─ backend/
+│  ├─ fastapi_app/
+│  │  ├─ app/
+│  │  │  ├─ main.py
+│  │  │  ├─ api/
+│  │  │  │  ├─ v1_face.py
+│  │  │  │  ├─ v1_voice.py
+│  │  │  │  └─ v1_attendance.py
+│  │  │  ├─ services/
+│  │  │  │  ├─ supabase_client.py
+│  │  │  │  └─ embeddings.py
+│  │  │  └─ models/
+│  │  │     └─ loader.py
+│  │  ├─ requirements.txt
+│  │  └─ Dockerfile
+│  ├─ training/
+│  │  ├─ wandb_setup.py
+│  │  └─ train_stub.py
+│  └─ utils/
+│     ├─ env.example
+│     └─ helpers.py
+├─ frontend/
+│  └─ web/
+│     ├─ package.json
+│     └─ src/
+│        └─ README.md
+├─ mlops/
+│  └─ github_actions/
+│     ├─ ci.yml
+│     └─ docker-build-push.yml
+├─ scripts/
+│  ├─ sync_offline.sh
+│  ├─ run_local_all.sh
+│  └─ prepare_jetson.sh
+├─ README.md
+└─ LICENSE
