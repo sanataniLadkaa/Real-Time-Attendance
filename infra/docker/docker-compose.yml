@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  fastapi:
+    build: ../../backend/fastapi_app
+    volumes:
+      - ../../backend/fastapi_app/app:/app/app
+    ports:
+      - "8000:8000"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:

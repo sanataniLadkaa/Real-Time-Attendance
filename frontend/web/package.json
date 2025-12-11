@@ -1,0 +1,8 @@
+{
+  "name": "attendance-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "echo \"frontend not implemented in week1; implement React app in week2\" && exit 0"
+  }
+}
