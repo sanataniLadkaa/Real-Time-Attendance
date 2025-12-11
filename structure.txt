@@ -55,3 +55,6 @@ attendance-system-supabase/
 │  └─ prepare_jetson.sh
 ├─ README.md
 └─ LICENSE
+
+
+uvicorn app.main:app --reload

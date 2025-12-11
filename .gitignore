@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# FastAPI logs
+*.log
+
+# Audio, video, face captures
+edge/audio/captures/
+edge/camera_capture/frames/
+edge/camera_capture/output/
+edge/inference/temp/
+
+# Model artifacts
+*.onnx
+*.engine
+*.pt
+*.h5
+*.pkl
+models/
+
+# Node.js
+frontend/web/node_modules/
+frontend/web/.next/
+frontend/web/dist/
+
+# Jetson / TRT build files
+edge/inference/build/
+edge/inference/trt_build/
+*.trt
+*.plan
+
+# Docker
+*.env
+.env
+docker-compose.override.yml
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+supabase/.cache/
+
+# VSCode
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
