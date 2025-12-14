@@ -10,18 +10,23 @@ router = APIRouter()
 supabase = SupabaseClient()
 models = ModelLoader()
 
+from fastapi import APIRouter, UploadFile, File
+from app.services.face_service import verify_face
+
+router = APIRouter()
+
 @router.post("/verify")
-async def verify_face(file: UploadFile = File(...), employee_id: str = None):
-    """
-    Accepts an image file, runs face detection + embedding + verifies against stored embeddings.
-    """
-    # save temporary file
-    contents = await file.read()
-    if not contents:
-        raise HTTPException(status_code=400, detail="Empty file")
-    # For Week 1: mock embedding & verification flow
-    # In Week 2 we'll replace with actual model inference.
-    # TODO: run models.face_detector + models.face_embedding
-    # Mock response:
-    result = {"employee_id": employee_id, "score": 0.82, "verified": True}
-    return {"status": "ok", "result": result}
+async def face_verify(file: UploadFile = File(...)):
+    image_bytes = await file.read()
+
+    employee_id, score, verified = verify_face(image_bytes)
+
+    return {
+        "status": "ok",
+        "result": {
+            "employee_id": employee_id,
+            "score": round(score, 3),
+            "verified": verified
+        }
+    }
+

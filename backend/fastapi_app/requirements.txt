@@ -2,3 +2,15 @@ fastapi==0.95.2
 uvicorn[standard]==0.22.0
 python-dotenv==1.0.0
 supabase==1.0.0
+# fastapi
+# uvicorn
+numpy
+opencv-python
+torch>=2.2.0
+torchvision
+ultralytics
+insightface
+onnxruntime
+scikit-learn
+# supabase
+python-dotenv

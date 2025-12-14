@@ -53,3 +53,5 @@ supabase/.cache/
 # OS
 .DS_Store
 Thumbs.db
+
+12venv
